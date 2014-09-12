@@ -30,12 +30,24 @@ term xterm-256color
 #Shell title
 shelltitle "$ |bash"
 
+#Auto detach
+autodetach on
+
+
+# changes the kind of messages to the nethack-style.
+#nethack on
+
+
+# changes the windowlist format to suit caption/hardstatus
+windowlist title  '%{u .g}Num Flags Title%=[0-9] select the number [movement] j,C-n:Down k,C-p:Up (C-)f:PageDown (C-)b:PageUp'
+windowlist string '%{.g}%3n %{.y}%f%09=%{dg} %t %='
+
 
 #Caption
-caption always '%?%F%{= mW}%:%{= Kk}%?%2n%f%07=%t%='
+caption always "%?%F%{= mW}%:%{= Kk}%?%2n%f%07=%t%-6<%=%?%E[%{=b}CMD%{-}]%:[   ]%?"
 
 
 #Hardstatus
-hardstatus alwayslastline "%{b kw}$USER@%H[$LANG]%{r}%1`%{w} | %{g}%c:%s%{w} | %{y}%D %d %M %Y%{w} | %{g}%l %{w}| %{-b kw}%u %-Lw%{= rW}%50>%n%f %t %{-}%+Lw%<"
 
+hardstatus alwayslastline "%{b kw}$USER@%H%{r}%1`%{w} | %{B}$LANG%{w} | %{r}%l %{w} << %{-b kw}%u %-Lw%{=b rW}%n%f %t %{-}%+Lw%<%{b kw}%= %-27<%=%{g}%c:%s%{w} | %{y}%D %d %M %Y%{w}"
 
