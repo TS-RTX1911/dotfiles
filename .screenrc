@@ -2,6 +2,10 @@
 defscrollback 10000
 
 
+#Scroll
+termcapinfo xterm* ti@:te@
+
+
 #Turnoff status message
 startup_message off
 
