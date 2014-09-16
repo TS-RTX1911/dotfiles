@@ -52,4 +52,5 @@ caption always "%?%F%{= mW}%:%{= Kk}%?%2n%f%07=%t%-6<%=%?%E[%{=b}CMD%{-}]%:[   ]
 
 
 #Hardstatus
-hardstatus alwayslastline "%{W.} %{w.} %{B.} %{b.} %?%E%{b rG}%:%{b kG}%?[ $USER@%H%{r}%1`%{G} | %{b}$LANG%{G} | %{R}%l%{G} ][%= %{= w}%?%-Lw%?%{b m}[%{W}%n*%f%t%?(%u)%?%{m}]%{-b w}%?%+Lw%?%?%= %{b G}]%-34<[ %{Y}%D %d %M %Y%{G} | %{W}%c:%s%{G} ]%{b.} %{B.} %{w.} %{W.} "
+hardstatus alwayslastline "%?%E%{W.} %{w.} %{R.} %{r.} %{b rG}%:%{W.} %{w.} %{B.} %{b.} %{b kG}%?[ $USER@%H%{r}%1`%{G} | %{b}$LANG%{G} | %{R}%l%{G} ][%= %{= w}%?%-Lw%?%{b m}[%{W}%n*%f%t%?(%u)%?%{m}]%{-b w}%?%+Lw%?%?%?%= %{b G}]%-34<[ %{Y}%D %d %M %Y%{G} | %{W}%c:%s%{G} ]%?%E%{r.} %{R.} %{w.} %{W.} %:%{b.} %{B.} %{w.} %{W.} %?"
+
