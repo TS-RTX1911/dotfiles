@@ -90,7 +90,9 @@ hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=whi
 "colorscheme evening
 "colorscheme solarized
 
+"Molokai color scheme
 let g:molokai_original = 1
+let g:rehash256 = 1
 colorscheme molokai
 
 
