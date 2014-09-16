@@ -18,7 +18,6 @@ shell -$SHELL
 utf8 on
 defencoding utf-8
 encoding utf-8 utf-8
-
 #Mouse Tracking
 mousetrack on
 
