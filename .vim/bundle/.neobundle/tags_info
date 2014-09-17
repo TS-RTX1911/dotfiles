@@ -1,0 +1,13 @@
+clang_complete
+lightline.vim
+neobundle.vim
+neocomplcache
+neosnippet
+neosnippet-snippets
+nerdtree
+vim-autoclose
+vim-indent-guides
+vim-quickrun
+vim-trailing-whitespace
+vimdoc-ja
+vimproc.vim
