@@ -209,7 +209,17 @@ NeoBundle 'Rip-Rip/clang_complete'
 "Quickrun"
 NeoBundle 'thinca/vim-quickrun'
 
+"Java complete
+NeoBundleLazy 'vim-scripts/javacomplete', {
+\   'build': {
+\       'cygwin': 'javac autoload/Reflection.java',
+\       'mac': 'javac autoload/Reflection.java',
+\       'unix': 'javac autoload/Reflection.java',
+\   },
+\}
 
+"Matrix screen saver (:Matrix)
+NeoBundle 'uguu-org/vim-matrix-screensaver'
 
 
 """"""""""""""""""""""""""""""""" Light Line """""""""""""""""""""""""""""""""""
@@ -433,7 +443,13 @@ let g:clang_complete_auto=0
 
 
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""" Java """""""""""""""""""""""""""""""""""""
+
+let g:java_highlight_all=1
+let g:java_highlight_debug=1
+let g:java_allow_cpp_keywords=1
+let g:java_space_errors=1
+let g:java_highlight_functions=1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
