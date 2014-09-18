@@ -18,7 +18,7 @@ shell -$SHELL
 #utf8 on
 defencoding utf-8
 encoding utf-8 utf-8
-#Mouse Tracking 
+#Mouse Tracking
 mousetrack on
 
 
@@ -47,12 +47,14 @@ windowlist title  '%{u .g}Num Flags Title%=[0-9] select the number [movement] j,
 windowlist string '%{.g}%3n %{.y}%f%09=%{dg} %t %='
 
 
-#Caption
+#Mac OS X Caption
 caption always "%?%F%{= mW}%:%{= Kk}%?%2n%f%07=%t%-6<%=%?%E[%{=b}CMD%{-}]%:[   ]%?"
+
+#Linux Caption
+#caption always "%?%F%{= mW}%:%{= Kk}%?%2n%f%07=%t%-6<%="
 
 
 #Mac OS X Hardstatus
-
 hardstatus alwayslastline "%?%E%{W.} %{w.} %{R.} %{r.} %{b rG}%:%{W.} %{w.} %{B.} %{b.} %{b kG}%?[ $USER@%H%{r}%1`%{G} | %{b}$LANG%{G} | %{R}%l%{G} ][%= %{= w}%?%-Lw%?%{b m}[%{W}%n*%f%t%?(%u)%?%{m}]%{-b w}%?%+Lw%?%?%?%= %{b G}]%-34<[ %{Y}%D %d %M %Y%{G} | %{W}%c:%s%{G} ]%?%E%{r.} %{R.} %{w.} %{W.} %:%{b.} %{B.} %{w.} %{W.} %?"
 
 #Linux Hardstatus
