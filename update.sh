@@ -2,7 +2,7 @@
 
 cp ./.screenrc ~/
 cp ./.vimrc ~/
-cp ./.vim ~/
+cp -r ./.vim ~/
 
 
 echo
