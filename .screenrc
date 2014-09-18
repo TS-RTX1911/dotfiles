@@ -15,11 +15,11 @@ shell -$SHELL
 
 
 #Charset
-utf8 on
+#utf8 on
 defencoding utf-8
 encoding utf-8 utf-8
-#Mouse Tracking
-mousetrack on
+#Mouse Tracking 
+#mousetrack on
 
 
 #Enable Visual Bell
@@ -51,6 +51,9 @@ windowlist string '%{.g}%3n %{.y}%f%09=%{dg} %t %='
 caption always "%?%F%{= mW}%:%{= Kk}%?%2n%f%07=%t%-6<%=%?%E[%{=b}CMD%{-}]%:[   ]%?"
 
 
-#Hardstatus
-hardstatus alwayslastline "%?%E%{W.} %{w.} %{R.} %{r.} %{b rG}%:%{W.} %{w.} %{B.} %{b.} %{b kG}%?[ $USER@%H%{r}%1`%{G} | %{b}$LANG%{G} | %{R}%l%{G} ][%= %{= w}%?%-Lw%?%{b m}[%{W}%n*%f%t%?(%u)%?%{m}]%{-b w}%?%+Lw%?%?%?%= %{b G}]%-34<[ %{Y}%D %d %M %Y%{G} | %{W}%c:%s%{G} ]%?%E%{r.} %{R.} %{w.} %{W.} %:%{b.} %{B.} %{w.} %{W.} %?"
+#Mac OS X Hardstatus
 
+#hardstatus alwayslastline "%?%E%{W.} %{w.} %{R.} %{r.} %{b rG}%:%{W.} %{w.} %{B.} %{b.} %{b kG}%?[ $USER@%H%{r}%1`%{G} | %{b}$LANG%{G} | %{R}%l%{G} ][%= %{= w}%?%-Lw%?%{b m}[%{W}%n*%f%t%?(%u)%?%{m}]%{-b w}%?%+Lw%?%?%?%= %{b G}]%-34<[ %{Y}%D %d %M %Y%{G} | %{W}%c:%s%{G} ]%?%E%{r.} %{R.} %{w.} %{W.} %:%{b.} %{B.} %{w.} %{W.} %?"
+
+#Linux Hardstatus
+hardstatus alwayslastline "%{b kG}[ $USER@%H%{r}%1`%{G} | %{b}$LANG%{G} | %{R}%l%{G} ][%= %{= w}%?%-Lw%?%{b m}[%{W}%n*%f%t%?(%u)%?%{m}]%{-b w}%?%+Lw%?%?%?%= %{b G}]%-30<[ %{Y}%D %d %M %Y%{G} | %{W}%c:%s%{G} ]%="

@@ -12,6 +12,11 @@
 
 """""""""""""""""""""""""" VIM default configuration """""""""""""""""""""""""""
 
+"gnome-terminal color fix
+if $COLORTERM == 'gnome-terminal'
+    set t_Co=256
+endif
+
 "Match new line indent to current line
 set autoindent
 
