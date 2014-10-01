@@ -1,8 +1,6 @@
 dotfiles
 ========
 
-FUCK THIS.
+THIS dotfiles is SOOOOOOOO AWESOOOOOOOMMMMMMMEEEEEEEEEE!!!!!!!!!!
 
-FUCK dotfiles.
-
-FUCK my creepy codes.
+Working perfect with vim and GNU screen !!
