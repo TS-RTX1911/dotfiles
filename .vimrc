@@ -127,7 +127,7 @@ if has("gui_running")
   if has("gui_gtk2")
     set guifont=Inconsolata\ 12
   elseif has("gui_macvim")
-    set guifont=Menlo\ Regular:h14
+    set guifont=Andale\ Mono:h12
   elseif has("gui_win32")
     set guifont=Consolas:h9:cANSI
   endif
@@ -239,6 +239,9 @@ NeoBundle 'uguu-org/vim-matrix-screensaver'
 NeoBundle 'glsl.vim'
 autocmd BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl
   \ set filetype=glsl
+
+
+NeoBundle 'hints_opengl.vim'
 
 
 """"""""""""""""""""""""""""""""" Light Line """""""""""""""""""""""""""""""""""
@@ -473,8 +476,5 @@ let g:java_highlight_functions=1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
