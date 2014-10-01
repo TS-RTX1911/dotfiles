@@ -236,12 +236,16 @@ NeoBundleLazy 'vim-scripts/javacomplete', {
 "Matrix screen saver (:Matrix)
 NeoBundle 'uguu-org/vim-matrix-screensaver'
 
+NeoBundle 'beyondmarc/opengl.vim'
+
 NeoBundle 'glsl.vim'
 autocmd BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl
   \ set filetype=glsl
 
 
 NeoBundle 'hints_opengl.vim'
+
+NeoBundle 'tikhomirov/vim-glsl'
 
 
 """"""""""""""""""""""""""""""""" Light Line """""""""""""""""""""""""""""""""""
