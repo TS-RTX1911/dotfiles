@@ -247,7 +247,8 @@ NeoBundle 'tikhomirov/vim-glsl'
 "Calender
 NeoBundle 'itchyny/calendar.vim'
 
-
+"Include complete
+NeoBundle 'xaizek/vim-inccomplete'
 
 
 
