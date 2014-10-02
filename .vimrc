@@ -62,6 +62,9 @@ set smartcase
 "Smart indent (very useful)
 set smartindent
 
+"indent for C
+set cindent
+
 "When type ahead of line, indent shiftwidth
 set smarttab
 
@@ -123,6 +126,7 @@ set list
 "No return
 set nowrap
 
+"GUI
 if has("gui_running")
   if has("gui_gtk2")
     set guifont=Inconsolata\ 12
@@ -132,6 +136,45 @@ if has("gui_running")
     set guifont=Consolas:h9:cANSI
   endif
 endif
+
+"Multi Indent
+vnoremap < <gv
+vnoremap > >gv
+
+if has("autocmd")
+  filetype plugin on
+  filetype indent on
+  "autocmd FileType php filetype indent off
+
+  autocmd FileType apache     setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType aspvbs     setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType c          setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType cpp        setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType cs         setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType css        setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType diff       setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType eruby      setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType html       setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType java       setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType javascript setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType perl       setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType php        setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType python     setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType ruby       setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType haml       setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType sh         setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType sql        setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType vb         setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType vim        setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType wsh        setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType xhtml      setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType xml        setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType yaml       setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType zsh        setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType scala      setlocal sw=2 sts=2 ts=2 et
+endif
+
+
 
 
 
@@ -193,11 +236,64 @@ NeoBundle 'Shougo/vimproc.vim', {
       \    },
       \ }
 
+"Unite
+NeoBundle 'Shougo/unite.vim'
+
 "Light Line
 NeoBundle 'itchyny/lightline.vim'
 
 "NERDtree (:NERDtree)
 NeoBundle 'scrooloose/nerdtree'
+
+"NERDcommenter
+NeoBundle 'scrooloose/nerdcommenter'
+
+"Vim filer
+NeoBundle 'Shougo/vimfiler.vim'
+
+"Vim shell
+NeoBundle 'Shougo/vimshell.vim'
+
+"surround
+NeoBundle 'tpope/vim-surround'
+
+"Command repeat
+NeoBundle 'tpope/vim-repeat'
+
+"vim toggle
+NeoBundle 'taku-o/vim-toggle'
+
+"FuzzyFinder
+NeoBundle 'tpope/FuzzyFinder'
+
+"echodoc
+NeoBundle 'Shougo/echodoc.vim'
+
+"smartchr
+NeoBundle 'kana/vim-smartchr'
+
+"Git
+NeoBundle 'motemen/git-vim'
+
+"Git branch
+NeoBundle 'tpope/vim-fugitive'
+
+NeoBundle 'rails.vim'
+
+"Error marker (:make)
+NeoBundle 'errormarker.vim'
+
+"sudo
+NeoBundle 'sudo.vim'
+
+"Align
+NeoBundle 'Align'
+
+"Bin
+NeoBundle 'Shougo/vinarise.vim'
+
+"tab
+NeoBundle 'fholgado/minibufexpl.vim'
 
 "Indent Coloring
 NeoBundle 'nathanaelkane/vim-indent-guides'
@@ -251,7 +347,7 @@ NeoBundle 'itchyny/calendar.vim'
 NeoBundle 'xaizek/vim-inccomplete'
 
 "Tag list
-NeoBundle 'xaizek/taglist.vim'
+NeoBundle 'taglist.vim'
 let Tlist_Show_One_File = 1
 let Tlist_Use_Right_Window = 1
 let Tlist_Exit_OnlyWindow = 1
@@ -488,6 +584,8 @@ let g:java_space_errors=1
 let g:java_highlight_functions=1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:vimfiler_as_default_explorer = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
