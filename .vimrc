@@ -281,7 +281,7 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'rails.vim'
 
 "Error marker (:make)
-NeoBundle 'errormarker.vim'
+"NeoBundle 'errormarker.vim'
 
 "sudo
 NeoBundle 'sudo.vim'
@@ -594,10 +594,10 @@ vmap ,, <Plug>NERDCommenterToggle
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:errormarker_errortext = '!!'
-let g:errormarker_warningtext = '??'
-let g:errormarker_errorgroup = 'Error'
-let g:errormarker_warninggroup = 'Todo'
+"let g:errormarker_errortext = '!!'
+"let g:errormarker_warningtext = '??'
+"let g:errormarker_errorgroup = 'Error'
+"let g:errormarker_warninggroup = 'Todo'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
