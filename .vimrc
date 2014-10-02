@@ -352,6 +352,10 @@ let Tlist_Show_One_File = 1
 let Tlist_Use_Right_Window = 1
 let Tlist_Exit_OnlyWindow = 1
 
+ NeoBundleLazy 'rhysd/vim-clang-format', {
+             \ 'autoload' : {'filetypes' : ['c', 'cpp', 'objc']}
+             \ }
+
 
 
 """"""""""""""""""""""""""""""""" Light Line """""""""""""""""""""""""""""""""""
@@ -600,6 +604,11 @@ vmap ,, <Plug>NERDCommenterToggle
 "let g:errormarker_warninggroup = 'Todo'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+augroup cpp-path
+    autocmd!
+    autocmd FileType cpp setlocal path=.,/usr/include,/usr/local/include,/usr/lib/c++/v1
+augroup END
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
