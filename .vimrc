@@ -263,9 +263,6 @@ NeoBundle 'tpope/vim-repeat'
 "vim toggle
 NeoBundle 'taku-o/vim-toggle'
 
-"FuzzyFinder
-NeoBundle 'tpope/FuzzyFinder'
-
 "echodoc
 NeoBundle 'Shougo/echodoc.vim'
 
@@ -279,9 +276,6 @@ NeoBundle 'motemen/git-vim'
 NeoBundle 'tpope/vim-fugitive'
 
 NeoBundle 'rails.vim'
-
-"Error marker (:make)
-"NeoBundle 'errormarker.vim'
 
 "sudo
 NeoBundle 'sudo.vim'
@@ -595,13 +589,6 @@ let NERDTreeShowHidden = 1
 let NERDSpaceDelims = 1
 nmap ,, <Plug>NERDCommenterToggle
 vmap ,, <Plug>NERDCommenterToggle
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-"let g:errormarker_errortext = '!!'
-"let g:errormarker_warningtext = '??'
-"let g:errormarker_errorgroup = 'Error'
-"let g:errormarker_warninggroup = 'Todo'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
