@@ -151,12 +151,12 @@ if has("autocmd")
   autocmd FileType c          setlocal sw=4 sts=4 ts=4 et
   autocmd FileType cpp        setlocal sw=4 sts=4 ts=4 et
   autocmd FileType cs         setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType css        setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType css        setlocal sw=4 sts=4 ts=4 et
   autocmd FileType diff       setlocal sw=4 sts=4 ts=4 et
   autocmd FileType eruby      setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType html       setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType html       setlocal sw=4 sts=4 ts=4 et
   autocmd FileType java       setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType javascript setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType javascript setlocal sw=4 sts=4 ts=4 et
   autocmd FileType perl       setlocal sw=4 sts=4 ts=4 et
   autocmd FileType php        setlocal sw=4 sts=4 ts=4 et
   autocmd FileType python     setlocal sw=4 sts=4 ts=4 et
@@ -185,7 +185,6 @@ endif
 let g:molokai_original = 1
 let g:rehash256 = 1
 colorscheme molokai
-
 
 
 
@@ -349,6 +348,32 @@ let Tlist_Exit_OnlyWindow = 1
  NeoBundleLazy 'rhysd/vim-clang-format', {
              \ 'autoload' : {'filetypes' : ['c', 'cpp', 'objc']}
              \ }
+
+"Emmet
+NeoBundle 'mattn/emmet-vim'
+
+"HTML5
+NeoBundle 'othree/html5.vim'
+
+"CSS3 Syntax
+NeoBundle 'hail2u/vim-css3-syntax'
+
+"HTML5 Validator
+NeoBundle 'hokaccha/vim-html5validator'
+
+"syntastic
+NeoBundle 'scrooloose/syntastic'
+
+"Javascript
+NeoBundle 'taichouchou2/vim-javascript'
+
+"Changed
+NeoBundle 'vim-scripts/Changed'
+
+"Highlight-UnMatched-Brackets
+NeoBundle 'vim-scripts/Highlight-UnMatched-Brackets'
+set matchpairs+=<:>
+
 
 
 
