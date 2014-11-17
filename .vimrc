@@ -365,7 +365,7 @@ NeoBundle 'hokaccha/vim-html5validator'
 NeoBundle 'scrooloose/syntastic'
 
 "Javascript
-NeoBundle 'taichouchou2/vim-javascript'
+NeoBundle 'pangloss/vim-javascript'
 
 "Changed
 NeoBundle 'vim-scripts/Changed'
@@ -373,6 +373,9 @@ NeoBundle 'vim-scripts/Changed'
 "Highlight-UnMatched-Brackets
 NeoBundle 'vim-scripts/Highlight-UnMatched-Brackets'
 set matchpairs+=<:>
+
+"Multiple cursors (Ctrl-n)
+NeoBundle 'terryma/vim-multiple-cursors'
 
 
 
