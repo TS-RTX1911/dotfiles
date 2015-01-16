@@ -111,6 +111,13 @@ set confirm
 "Turn on mouse support
 set mouse=a
 
+"Set backspace function (For windows)
+set backspace=start,eol,indent
+
+"IME disable
+set iminsert=0
+set imsearch=1
+
 "Save previous session cursor place
 autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
 
