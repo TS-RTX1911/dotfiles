@@ -327,7 +327,7 @@ NeoBundle 'uguu-org/vim-matrix-screensaver'
 
 "OpenGL
 NeoBundle 'beyondmarc/opengl.vim'
-NeoBundle 'glsl.vim'
+NeoBundle 'tikhomirov/vim-glsl.vim'
 autocmd BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl
   \ set filetype=glsl
 NeoBundle 'hints_opengl.vim'
@@ -376,6 +376,9 @@ set matchpairs+=<:>
 
 "Multiple cursors (Ctrl-n)
 NeoBundle 'terryma/vim-multiple-cursors'
+
+"Closetag (HTML)
+NeoBundle 'vim-scripts/closetag.vim'
 
 
 
@@ -627,7 +630,14 @@ augroup END
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+"autocmd FileType html,htmldjango,jinjahtml,eruby,mako let b:closetag_html_style=1
+autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bundle/closetag/plugin/closetag.vim
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"let &colorcolumn=join(range(81,999),",")
+highlight ColorColumn ctermbg=235 guibg=#802020
+let &colorcolumn="80,".join(range(120,999),",")
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
