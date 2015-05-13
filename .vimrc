@@ -218,7 +218,7 @@ colorscheme molokai
  " Refer to |:NeoBundle-examples|.
  " Note: You don't set neobundle setting in .gvimrc!
 
- call neobundle#end()
+
 
  " Required:
  filetype plugin indent on
@@ -388,7 +388,7 @@ NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'vim-scripts/closetag.vim'
 
 
-
+call neobundle#end()
 
 """"""""""""""""""""""""""""""""" Light Line """""""""""""""""""""""""""""""""""
 
