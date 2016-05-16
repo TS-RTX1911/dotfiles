@@ -649,7 +649,8 @@ let &colorcolumn="80,".join(range(120,999),",")
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 autocmd ColorScheme * highlight LineNr ctermfg=230
-:highlight LineNr ctermfg=230
+hi LineNr ctermbg=236 ctermfg=230
+hi Cursor ctermbg=250
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
