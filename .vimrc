@@ -138,7 +138,7 @@ if has("gui_running")
   if has("gui_gtk2")
     set guifont=Inconsolata\ 12
   elseif has("gui_macvim")
-    set guifont=Andale\ Mono:h12
+    set guifont=Andale\ Mono\ for\ Powerline:h12
   elseif has("gui_win32")
     set guifont=Consolas:h9:cANSI
   endif
@@ -408,8 +408,8 @@ let g:lightline = {
       \   'fileencoding': 'MyFileencoding',
       \   'mode': 'MyMode',
       \ },
-      \ 'separator': { 'left': '', 'right': '' },
-      \ 'subseparator': { 'left': '|', 'right': '|' }
+      \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
+      \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }
       \ }
 
 function! MyModified()
@@ -430,9 +430,10 @@ function! MyFilename()
 endfunction
 
 function! MyFugitive()
-  if &ft !~? 'vimfiler\|gundo' && exists("*fugitive#head")
-    let _ = fugitive#head()
-    return strlen(_) ? "[Fugitive] "._ : ''
+  if &ft !~? 'vimfiler\|gundo' && exists("*fugitive#head") && strlen(fugitive#head())
+    return ' ' . fugitive#head()
+    "let _ = fugitive#head()
+    "    return strlen(_) ? "[Fugitive] "._ : ''
   endif
   return ''
 endfunction
