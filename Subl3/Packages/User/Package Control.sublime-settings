@@ -40,12 +40,10 @@
 		"Material Theme",
 		"Material Theme - Appbar",
 		"Minifier",
-		"Monokai - Spacegray",
 		"Nodejs",
 		"OpenGL Shading Language (GLSL)",
 		"Package Control",
 		"Pretty JSON",
-		"Sass",
 		"SFTP",
 		"Shader Syntax (GLSL HLSL Cg)",
 		"ShaderLanguages",
@@ -56,9 +54,7 @@
 		"SublimeLinter",
 		"SyncedSideBar",
 		"Tag",
-		"Theme - Spacegray",
 		"TrailingSpaces",
-		"Unity3D Shader Highlighter and Snippets",
 		"WebGLCompletions"
 	]
 }
