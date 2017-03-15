@@ -2,6 +2,11 @@
 	"bootstrapped": true,
 	"in_process_packages":
 	[
+		"EncodingHelper",
+		"IMESupport",
+		"SideBarFolders",
+		"SideBarGit",
+		"Tag"
 	],
 	"installed_packages":
 	[
@@ -16,6 +21,7 @@
 		"C++ Starting Kit",
 		"C++11",
 		"C++NamespaceTool",
+		"Clang-Complete",
 		"Color Highlighter",
 		"ColorPicker",
 		"ConvertToUTF8",
