@@ -2,11 +2,6 @@
 	"bootstrapped": true,
 	"in_process_packages":
 	[
-		"EncodingHelper",
-		"IMESupport",
-		"SideBarFolders",
-		"SideBarGit",
-		"Tag"
 	],
 	"installed_packages":
 	[
