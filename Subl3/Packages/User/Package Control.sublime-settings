@@ -24,7 +24,6 @@
 		"DocBlockr",
 		"Emmet",
 		"Emmet Css Snippets",
-		"EncodingHelper",
 		"Git",
 		"GitGutter",
 		"GL Shader Validator",
@@ -52,14 +51,11 @@
 		"Shader Syntax (GLSL HLSL Cg)",
 		"ShaderLanguages",
 		"SideBarEnhancements",
-		"SideBarFolders",
-		"SideBarGit",
 		"Solarized Color Scheme",
 		"Status Bar Time",
 		"SublimeCodeIntel",
 		"SublimeLinter",
 		"SyncedSideBar",
-		"Tag",
 		"TrailingSpaces",
 		"WebGLCompletions"
 	]
