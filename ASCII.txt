@@ -1,6 +1,10 @@
 http://patorjk.com/software/taag/
 
 
+Created by Tomoki "FL1NE" SHISHIKURA (@FL1NE)
+(https://fl1ne.rtx1911.net)
+
+
 Big
   ______ _     __ _   _ ______
  |  ____| |   /_ | \ | |  ____|
