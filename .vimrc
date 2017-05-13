@@ -1,664 +1,173 @@
 "
-"             _
-"      _   __(_)___ ___  __________
-"     | | / / / __ `__ \/ ___/ ___/
-"    _| |/ / / / / / / / /  / /__
-"   (_)___/_/_/ /_/ /_/_/   \___/
+"     ██╗   ██╗██╗███╗   ███╗██████╗  ██████╗
+"     ██║   ██║██║████╗ ████║██╔══██╗██╔════╝
+"     ██║   ██║██║██╔████╔██║██████╔╝██║
+"     ╚██╗ ██╔╝██║██║╚██╔╝██║██╔══██╗██║
+"   ██╗╚████╔╝ ██║██║ ╚═╝ ██║██║  ██║╚██████╗
+"   ╚═╝ ╚═══╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝ ╚═════╝
 "
-"   T_S / RTX1911 [@T_SRTX1911]
-"   http://www.rtx1911.net/T_S/
+"   Created by Tomoki "FL1NE" SHISHIKURA (@FL1NE)
+"   (https://fl1ne.rtx1911.net)
 "
 
 
-"""""""""""""""""""""""""" VIM default configuration """""""""""""""""""""""""""
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.vim/bundle/
+call vundle#begin()
 
-"gnome-terminal color fix
-if $COLORTERM == 'gnome-terminal'
-    set t_Co=256
+"Use :VundleInstall to Install Plugins
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'kristijanhusak/vim-hybrid-material'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-fugitive'
+Plugin 'scrooloose/syntastic'
+Plugin 'majutsushi/tagbar'
+Plugin 'chrisbra/csv.vim'
+Plugin 'jreybert/vimagit'
+Plugin 'kien/ctrlp.vim'
+Plugin 'jmcantrell/vim-virtualenv'
+Plugin 'edkolev/tmuxline.vim'
+Plugin 'edkolev/promptline.vim'
+Plugin 'chrisbra/NrrwRgn'
+Plugin 'tpope/vim-capslock'
+Plugin 'wesQ3/vim-windowswap'
+Plugin 'tpope/vim-obsession'
+Plugin 'vim-ctrlspace/vim-ctrlspace'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'vim-scripts/po.vim'
+
+
+call vundle#end()
+filetype plugin indent on
+
+
+" ================= GUI options =================
+
+set guioptions-=m                                "Remove menu bar
+set guioptions-=T                                "Remove toolbar
+set guioptions-=L                                "Remove left scrollbar
+set guioptions-=r                                "Remove left scrollbar
+set guioptions-=l                                "Remove left scrollbar
+
+if has("gui_running")
+  if has("gui_gtk2")
+    set guifont=Andale\ Mono\ for\ Powerline\ 12
+  elseif has("gui_macvim")
+    set guifont=Andale\ Mono\ for\ Powerline:h12
+  elseif has("gui_win32")
+    set guifont=Andale\ Mono\ for\ Powerline:h9:cANSI
+  endif
 endif
 
-"Match new line indent to current line
-set autoindent
 
-"Backup file dir
-"set backupdir=$HOME/vimbackup
+" =============== General Config ================
 
-"Browsedir
-set browsedir=buffer
+set t_Co=256                                     "Set 256 colors
+set title                                        "Change terminal title
+set number                                       "Line numbers
+set backspace=indent,eol,start                   "Allow backspace
+set history=500                                  "Store many command history
+set showcmd                                      "Show incomplete command
+set noshowmode                                   "Hide mode for Powerline
+set gdefault                                     "Set global flag
+set cursorline                                   "Highlight current line
+"set cursorcolumn                                 "Highlight current column
+set autoread                                     "Reload files changed outside
+set smartcase                                    "Smart case search
+set ignorecase                                   "case insensitive search
+set hlsearch                                     "Highlight search term
+set incsearch                                    "Jump to found term
+set showmatch                                    "Highlight matching bracket
+set mouse=a                                      "Enable mouse
+set nostartofline                                "Jump to first character
+set timeoutlen=1000 ttimeoutlen=200              "Reduce Command timeout
+set laststatus=2                                 "Show statusbar
+set fileencoding=utf-8 encoding=utf-8            "Set utf-8 encoding
+scriptencoding utf-8                             "Set utf-8 encoding
+set wrap                                         "Enable word wrap
+set linebreak                                    "Wrap lines
+set listchars=eol:¬,tab:\ \ ,trail:·             "Set trails
+set list                                         "Enable listchars
+set lazyredraw                                   "lazyredraw
+set completeopt-=preview                         "Disable preview
+set hidden                                       "Hide buffers in background
+set splitright                                   "Set up new splits positions
+set tags=./tags;/                                "Find tags file
+set whichwrap=b,s,h,l,<,>,[,]                    "Better cursor move
+set confirm                                      "Ask unsaved change
+set cindent                                      "C Indent
+set cinoptions+=:0,g0                            "C Indent Options
+set smarttab                                     "Use smarttab
+set shiftwidth=4                                 "Shit size is 4
+set expandtab                                    "Use spaces for tab
+set tabstop=4                                    "Tab size is 4
+set softtabstop=4                                "Tab size is 4
+set smartindent                                  "Smart indent
+set autoindent                                   "Auto indent
+set nofoldenable                                 "No foldenable
+vnoremap < <gv                                   "Multi indent
+vnoremap > >gv                                   "Multi indent
 
-"Clipboard
-set clipboard=unnamed
 
-"No Vi compatible
-set nocompatible
+set conceallevel=2 concealcursor=i               "neosnippets conceal marker
 
-"Swap file dir
-"set directory=$HOME/vimbackup
 
-"Use space for tab
-set expandtab
+" ================ Color Scheme =================
 
-"show other file without save.
-set hidden
+syntax on                                        "turn on syntax highlighting
+let g:enable_bold_font = 1                       "Enable bold font
+set background=dark                              "Set background to dark
+colorscheme hybrid_material                      "Set color scheme
 
-"incsearch
-set incsearch
+highlight ColorColumn ctermbg=10 guibg=#475B62   "Deadzone Color
+let &colorcolumn="80,".join(range(120,999),",")  "Deadzone set at (80, 120)
 
-"Highlight search
-set hlsearch
+autocmd ColorScheme * highlight LineNr ctermfg=230
+hi LineNr ctermbg=236 ctermfg=230                "Line number color fix
 
-"Show line number
-set number
 
-"Shift width
-set shiftwidth=4
-
-"Show match ( and ) something like that.
-set showmatch
-
-"Divide search between a and A. something like that.
-set smartcase
-
-"Smart indent (very useful)
-set smartindent
-
-"indent for C
-set cindent
-
-"When type ahead of line, indent shiftwidth
-set smarttab
-
-"Tab size
-set tabstop=4
-set softtabstop=4
-
-"Won't stop head of line and end of line.
-set whichwrap=b,s,h,l,<,>,[,]
-
-"No loop while searching.
-set nowrapscan
-
-"Show Mode (INSERT, REPLACE, VISUAL)
-set showmode
-
-"Change Terminal title
-set title
-
-"Show where cursor is
-set ruler
-
-"Show commands
-set showcmd
-
-"Syntax on
-syntax on
-
-"Always show status line end of line 2.
-set laststatus=2
-
-"Show line
-set cursorline
-
-"Show column line
-"set cursorcolumn
-
-"Wild menu
-set wildmenu
-
-"Ask unsaved change
-set confirm
-
-"Turn on mouse support
-set mouse=a
-
-"Set backspace function (For windows)
-set backspace=start,eol,indent
-
-"IME disable
-set iminsert=0
-set imsearch=1
+" ================ Auto Commands ================
 
 "Save previous session cursor place
 autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
 
-"encoding
-scriptencoding utf-8
-set encoding=utf-8
+autocmd BufWritePre * %s/\s\+$//e   "trim_trailing_white_space_on_save
 
-"Show hidden chars
-"set listchars=eol:$,tab:>\ ,extends:<
-set listchars=eol:¬,tab:\|\ ,trail:-,nbsp:%,extends:>,precedes:<
-set list
 
-"No return
-set nowrap
+" ============ Zenkaku space finder =============
 
-"GUI
-if has("gui_running")
-  if has("gui_gtk2")
-    set guifont=Inconsolata\ 12
-  elseif has("gui_macvim")
-    set guifont=Andale\ Mono\ for\ Powerline:h12
-  elseif has("gui_win32")
-    set guifont=Consolas:h9:cANSI
-  endif
-endif
+function! ZenkakuSpace()
+    highlight ZenkakuSpace ctermbg=1 ctermfg=1 guibg=#FF0000
+endfunction
 
-"Multi Indent
-vnoremap < <gv
-vnoremap > >gv
-
-if has("autocmd")
-  filetype plugin on
-  filetype indent on
-  "autocmd FileType php filetype indent off
-
-  autocmd FileType apache     setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType aspvbs     setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType c          setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType cpp        setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType cs         setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType css        setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType diff       setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType eruby      setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType html       setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType java       setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType javascript setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType perl       setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType php        setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType python     setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType ruby       setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType haml       setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType sh         setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType sql        setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType vb         setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType vim        setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType wsh        setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType xhtml      setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType xml        setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType yaml       setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType zsh        setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType scala      setlocal sw=2 sts=2 ts=2 et
+if has('syntax')
+    augroup ZenkakuSpace
+        autocmd!
+        autocmd ColorScheme * call ZenkakuSpace()
+        autocmd VimEnter,WinEnter,BufRead * let w:m1=matchadd('ZenkakuSpace', '　')
+    augroup END
+    call ZenkakuSpace()
 endif
 
 
+" =============== Plugin Settings ===============
 
+let g:airline_powerline_fonts = 1                "Enable powerline fonts
+let g:airline_theme = "solarized"                "Set theme to Solarized
+let g:airline_section_y = '%{substitute(getcwd(), expand("$HOME"), "~", "g")}'
+let g:airline#extensions#whitespace#enabled = 0
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '│'
 
 
+set updatetime=250
+let g:gitgutter_sign_column_always = 1
 
-""""""""""""""""""""""""""""""""" Color Scheme """""""""""""""""""""""""""""""""
 
-"Molokai color scheme
-let g:molokai_original = 1
-let g:rehash256 = 1
-colorscheme molokai
 
 
-
-"""""""""""""""""""""""""""""""""" NeoBundle """""""""""""""""""""""""""""""""""
-
- " Note: Skip initialization for vim-tiny or vim-small.
- if !1 | finish | endif
-
- if has('vim_starting')
-   set nocompatible               " Be iMproved
-
-   " Required:
-   set runtimepath+=~/.vim/bundle/neobundle.vim/
- endif
-
- " Required:
- call neobundle#begin(expand('~/.vim/bundle/'))
-
- " Let NeoBundle manage NeoBundle
- " Required:
- NeoBundleFetch 'Shougo/neobundle.vim'
-
- " My Bundles here:
- " Refer to |:NeoBundle-examples|.
- " Note: You don't set neobundle setting in .gvimrc!
-
-
-
- " Required:
- filetype plugin indent on
-
- " If there are uninstalled bundles found on startup,
- " this will conveniently prompt you to install them.
- NeoBundleCheck
-
-
-
-
-"""""""""""""""""""""""""""""" NeoBundle Packages """"""""""""""""""""""""""""""
-
-"vimproc
-NeoBundle 'Shougo/vimproc.vim', {
-      \ 'build' : {
-      \     'windows' : 'tools\\update-dll-mingw',
-      \     'cygwin' : 'make -f make_cygwin.mak',
-      \     'mac' : 'make -f make_mac.mak',
-      \     'unix' : 'make -f make_unix.mak',
-      \    },
-      \ }
-
-"Unite
-NeoBundle 'Shougo/unite.vim'
-
-"Light Line
-NeoBundle 'itchyny/lightline.vim'
-
-"NERDtree (:NERDtree)
-NeoBundle 'scrooloose/nerdtree'
-
-"NERDcommenter
-NeoBundle 'scrooloose/nerdcommenter'
-
-"Vim filer
-NeoBundle 'Shougo/vimfiler.vim'
-
-"Vim shell
-NeoBundle 'Shougo/vimshell.vim'
-
-"surround
-NeoBundle 'tpope/vim-surround'
-
-"Command repeat
-NeoBundle 'tpope/vim-repeat'
-
-"vim toggle
-NeoBundle 'taku-o/vim-toggle'
-
-"echodoc
-NeoBundle 'Shougo/echodoc.vim'
-
-"smartchr
-NeoBundle 'kana/vim-smartchr'
-
-"Git
-NeoBundle 'motemen/git-vim'
-
-"Git branch
-NeoBundle 'tpope/vim-fugitive'
-
-NeoBundle 'rails.vim'
-
-"sudo
-NeoBundle 'sudo.vim'
-
-"Align
-NeoBundle 'Align'
-
-"Bin
-NeoBundle 'Shougo/vinarise.vim'
-
-"tab
-NeoBundle 'fholgado/minibufexpl.vim'
-
-"Indent Coloring
-NeoBundle 'nathanaelkane/vim-indent-guides'
-
-"Show End of the line space
-NeoBundle 'bronson/vim-trailing-whitespace'
-
-"Auto close ()
-NeoBundle 'Townk/vim-autoclose'
-
-"Japanese Document
-NeoBundle 'vim-jp/vimdoc-ja'
-
-"Neocomplcache
-NeoBundle 'Shougo/neocomplcache'
-
-"Neosnippet
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/neosnippet-snippets'
-
-"clang complete
-NeoBundle 'Rip-Rip/clang_complete'
-
-"Quickrun"
-NeoBundle 'thinca/vim-quickrun'
-
-"Java complete
-NeoBundleLazy 'vim-scripts/javacomplete', {
-\   'build': {
-\       'cygwin': 'javac autoload/Reflection.java',
-\       'mac': 'javac autoload/Reflection.java',
-\       'unix': 'javac autoload/Reflection.java',
-\   },
-\}
-
-"Matrix screen saver (:Matrix)
-NeoBundle 'uguu-org/vim-matrix-screensaver'
-
-"OpenGL
-NeoBundle 'beyondmarc/opengl.vim'
-NeoBundle 'tikhomirov/vim-glsl.vim'
-autocmd BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl
-  \ set filetype=glsl
-NeoBundle 'hints_opengl.vim'
-NeoBundle 'tikhomirov/vim-glsl'
-
-"Calender
-NeoBundle 'itchyny/calendar.vim'
-
-"Include complete
-NeoBundle 'xaizek/vim-inccomplete'
-
-"Tag list
-NeoBundle 'taglist.vim'
-let Tlist_Show_One_File = 1
-let Tlist_Use_Right_Window = 1
-let Tlist_Exit_OnlyWindow = 1
-
- NeoBundleLazy 'rhysd/vim-clang-format', {
-             \ 'autoload' : {'filetypes' : ['c', 'cpp', 'objc']}
-             \ }
-
-"Emmet
-NeoBundle 'mattn/emmet-vim'
-
-"HTML5
-NeoBundle 'othree/html5.vim'
-
-"CSS3 Syntax
-NeoBundle 'hail2u/vim-css3-syntax'
-
-"HTML5 Validator
-NeoBundle 'hokaccha/vim-html5validator'
-
-"syntastic
-NeoBundle 'scrooloose/syntastic'
-
-"Javascript
-NeoBundle 'pangloss/vim-javascript'
-
-"Changed
-NeoBundle 'vim-scripts/Changed'
-
-"Highlight-UnMatched-Brackets
-NeoBundle 'vim-scripts/Highlight-UnMatched-Brackets'
-set matchpairs+=<:>
-
-"Multiple cursors (Ctrl-n)
-NeoBundle 'terryma/vim-multiple-cursors'
-
-"Closetag (HTML)
-NeoBundle 'vim-scripts/closetag.vim'
-
-
-call neobundle#end()
-
-""""""""""""""""""""""""""""""""" Light Line """""""""""""""""""""""""""""""""""
-
-let g:lightline = {
-      \ 'colorscheme': 'landscape',
-      \ 'mode_map': { 'c': 'NORMAL' },
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
-      \ },
-      \ 'component_function': {
-      \   'modified': 'MyModified',
-      \   'readonly': 'MyReadonly',
-      \   'fugitive': 'MyFugitive',
-      \   'filename': 'MyFilename',
-      \   'fileformat': 'MyFileformat',
-      \   'filetype': 'MyFiletype',
-      \   'fileencoding': 'MyFileencoding',
-      \   'mode': 'MyMode',
-      \ },
-      \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
-      \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }
-      \ }
-
-function! MyModified()
-  return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
-endfunction
-
-function! MyReadonly()
-  return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? "[Readonly]" : ''
-endfunction
-
-function! MyFilename()
-  return ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
-        \ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
-        \  &ft == 'unite' ? unite#get_status_string() :
-        \  &ft == 'vimshell' ? vimshell#get_status_string() :
-        \ '' != expand('%:t') ? expand('%:t') : '[No Name]') .
-        \ ('' != MyModified() ? ' ' . MyModified() : '')
-endfunction
-
-function! MyFugitive()
-  if &ft !~? 'vimfiler\|gundo' && exists("*fugitive#head") && strlen(fugitive#head())
-    return ' ' . fugitive#head()
-    "let _ = fugitive#head()
-    "    return strlen(_) ? "[Fugitive] "._ : ''
-  endif
-  return ''
-endfunction
-
-function! MyFileformat()
-  return winwidth(0) > 70 ? &fileformat : ''
-endfunction
-
-function! MyFiletype()
-  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
-endfunction
-
-function! MyFileencoding()
-  return winwidth(0) > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
-endfunction
-
-function! MyMode()
-  return winwidth(0) > 60 ? lightline#mode() : ''
-endfunction
-
-
-
-
-""""""""""""""""""""""""""""""""" Indent guides """"""""""""""""""""""""""""""""
-
-"Turn on indent guides
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_start_level = 2
-let g:indent_guides_guide_size = 1
-
-let g:indent_guides_auto_colors = 0
-hi IndentGuidesOdd  ctermbg=darkgrey
-hi IndentGuidesEven ctermbg=lightgrey
-
-
-"""""""""""""""""""""""""""""""" Neocomplcache """""""""""""""""""""""""""""""""
-
-"Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
-" Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
-" Use neocomplcache.
-let g:neocomplcache_enable_at_startup = 1
-" Use smartcase.
-let g:neocomplcache_enable_smart_case = 1
-" Set minimum syntax keyword length.
-let g:neocomplcache_min_syntax_length = 3
-let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-
-" Enable heavy features.
-" Use camel case completion.
-"let g:neocomplcache_enable_camel_case_completion = 1
-" Use underbar completion.
-"let g:neocomplcache_enable_underbar_completion = 1
-
-" Define dictionary.
-let g:neocomplcache_dictionary_filetype_lists = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions'
-        \ }
-
-" Define keyword.
-if !exists('g:neocomplcache_keyword_patterns')
-    let g:neocomplcache_keyword_patterns = {}
-endif
-let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
-
-" Plugin key-mappings.
-inoremap <expr><C-g>     neocomplcache#undo_completion()
-inoremap <expr><C-l>     neocomplcache#complete_common_string()
-
-" Recommended key-mappings.
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  return neocomplcache#smart_close_popup() . "\<CR>"
-  " For no inserting <CR> key.
-  "return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
-endfunction
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplcache#close_popup()
-inoremap <expr><C-e>  neocomplcache#cancel_popup()
-" Close popup by <Space>.
-"inoremap <expr><Space> pumvisible() ? neocomplcache#close_popup() : "\<Space>"
-
-" For cursor moving in insert mode(Not recommended)
-"inoremap <expr><Left>  neocomplcache#close_popup() . "\<Left>"
-"inoremap <expr><Right> neocomplcache#close_popup() . "\<Right>"
-"inoremap <expr><Up>    neocomplcache#close_popup() . "\<Up>"
-"inoremap <expr><Down>  neocomplcache#close_popup() . "\<Down>"
-" Or set this.
-"let g:neocomplcache_enable_cursor_hold_i = 1
-" Or set this.
-"let g:neocomplcache_enable_insert_char_pre = 1
-
-" AutoComplPop like behavior.
-"let g:neocomplcache_enable_auto_select = 1
-
-" Shell like behavior(not recommended).
-"set completeopt+=longest
-"let g:neocomplcache_enable_auto_select = 1
-"let g:neocomplcache_disable_auto_complete = 1
-"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
-
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
-" Enable heavy omni completion.
-if !exists('g:neocomplcache_force_omni_patterns')
-  let g:neocomplcache_force_omni_patterns = {}
-endif
-let g:neocomplcache_force_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-let g:neocomplcache_force_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-let g:neocomplcache_force_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-
-" For perlomni.vim setting.
-" https://github.com/c9s/perlomni.vim
-let g:neocomplcache_force_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
-
-
-
-
-""""""""""""""""""""""""""""""""" Neosnippet """""""""""""""""""""""""""""""""""
-
-" Plugin key-mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-
-" SuperTab like snippets behavior.
-imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)"
-\: pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)"
-\: "\<TAB>"
-
-" For snippet_complete marker.
-if has('conceal')
-  set conceallevel=2 concealcursor=i
-endif
-
-
-
-
-""""""""""""""""""""""""""""""" clang_complete """""""""""""""""""""""""""""""""
-
-let g:clang_periodic_quickfix = 1
-let g:clang_complete_copen = 1
-let g:clang_use_library = 1
-let g:clang_library_path='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib'
-
-
-
-""""""""""""""""""""""""" Additional complete option """""""""""""""""""""""""""
-
-let g:neocomplcache_force_overwrite_completefunc=1
-
-if !exists("g:neocomplcache_force_omni_patterns")
-    let g:neocomplcache_force_omni_patterns = {}
-endif
-
-let g:neocomplcache_force_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|::'
-
-
-let g:clang_complete_auto=0
-
-
-
-
-""""""""""""""""""""""""""""""""""""" Java """""""""""""""""""""""""""""""""""""
-
-let g:java_highlight_all=1
-let g:java_highlight_debug=1
-let g:java_allow_cpp_keywords=1
-let g:java_space_errors=1
-let g:java_highlight_functions=1
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-let g:vimfiler_as_default_explorer = 1
-let NERDTreeShowHidden = 1
-
-let NERDSpaceDelims = 1
-nmap ,, <Plug>NERDCommenterToggle
-vmap ,, <Plug>NERDCommenterToggle
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-augroup cpp-path
-    autocmd!
-    autocmd FileType cpp setlocal path=.,/usr/include,/usr/local/include,/usr/lib/c++/v1
-augroup END
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-autocmd FileType html,htmldjango,jinjahtml,eruby,mako let b:closetag_html_style=1
-"autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bundle/closetag/plugin/closetag.vim
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"let &colorcolumn=join(range(81,999),",")
-highlight ColorColumn ctermbg=235 guibg=#802020
-let &colorcolumn="80,".join(range(120,999),",")
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-autocmd ColorScheme * highlight LineNr ctermfg=230
-hi LineNr ctermbg=236 ctermfg=230
-hi Cursor ctermbg=250
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
