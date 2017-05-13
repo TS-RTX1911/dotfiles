@@ -1,5 +1,9 @@
 {
 	"bootstrapped": true,
+	"in_process_packages":
+	[
+		"IMESupport"
+	],
 	"installed_packages":
 	[
 		"AdvancedNewFile",
