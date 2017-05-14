@@ -222,8 +222,8 @@ set updatetime=250
 let g:gitgutter_sign_column_always = 1
 
 
-let g:NERDTreeChDirMode = 2                      "Always change the root
-let g:NERDTreeMinimalUI = 1                      "Disable help text and
+"let g:NERDTreeChDirMode = 2                      "Always change the root
+"let g:NERDTreeMinimalUI = 1                      "Disable help text and
 let g:NERDTreeShowHidden = 1                     "Show hidden files
 let g:NERDTreeIgnore=['\.git$', '\.sass-cache$', '\.vagrant', '\.idea']
 
