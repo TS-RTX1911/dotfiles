@@ -37,8 +37,32 @@ Plugin 'tpope/vim-capslock'
 Plugin 'wesQ3/vim-windowswap'
 Plugin 'tpope/vim-obsession'
 Plugin 'vim-ctrlspace/vim-ctrlspace'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-scripts/po.vim'
+Plugin 'ConradIrwin/vim-bracketed-paste'
+Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'vim-jp/vimdoc-ja'
+Plugin 'tpope/vim-surround'
+Plugin 'vim-scripts/sudo.vim'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'vim-scripts/Changed'
+Plugin 'vim-scripts/Highlight-UnMatched-Brackets'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'vim-scripts/closetag.vim'
+Plugin 'tpope/vim-repeat'
+Plugin 'motemen/git-vim'
+Plugin 'vim-scripts/Align'
+Plugin 'fholgado/minibufexpl.vim'
+Plugin 'Townk/vim-autoclose'
+Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'vim-scripts/'taglist.vim'
+Plugin 'mattn/emmet-vim'
+Plugin 'othree/html5.vim'
+Plugin 'hail2u/vim-css3-syntax'
+Plugin 'hokaccha/vim-html5validator'
+Plugin 'pangloss/vim-javascript'
 
 
 call vundle#end()
@@ -75,7 +99,6 @@ set showcmd                                      "Show incomplete command
 set noshowmode                                   "Hide mode for Powerline
 set gdefault                                     "Set global flag
 set cursorline                                   "Highlight current line
-"set cursorcolumn                                 "Highlight current column
 set autoread                                     "Reload files changed outside
 set smartcase                                    "Smart case search
 set ignorecase                                   "case insensitive search
@@ -111,7 +134,9 @@ set autoindent                                   "Auto indent
 set nofoldenable                                 "No foldenable
 vnoremap < <gv                                   "Multi indent
 vnoremap > >gv                                   "Multi indent
-
+set imdisable                                    "Disable IME on mode change
+set wildmenu
+set wildmode=full
 
 set conceallevel=2 concealcursor=i               "neosnippets conceal marker
 
@@ -169,5 +194,72 @@ set updatetime=250
 let g:gitgutter_sign_column_always = 1
 
 
+let g:NERDTreeChDirMode = 2                      "Always change the root
+let g:NERDTreeMinimalUI = 1                      "Disable help text and
+let g:NERDTreeShowHidden = 1                     "Show hidden files
+let g:NERDTreeIgnore=['\.git$', '\.sass-cache$', '\.vagrant', '\.idea']
+
+
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ }
+
+
+nmap ,, <Plug>NERDCommenterToggle
+vmap ,, <Plug>NERDCommenterToggle
+
+
+let g:NERDSpaceDelims = 1
+let g:NERDCompactSexyComs = 1
+let g:NERDDefaultAlign = 'left'
+let g:NERDAltDelims_java = 1
+let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+let g:NERDCommentEmptyLines = 1
+let g:NERDTrimTrailingWhitespace = 1
+
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_enable_signs = 1
+let g:syntastic_error_symbol = "x"
+let g:syntastic_style_error_symbol = "x"
+let g:syntastic_warning_symbol = "▵"
+let g:syntastic_style_warning_symbol = "▵"
+let g:syntastic_loc_list_height = 5
+let g:syntastic_aggregate_errors = 1
+let g:syntastic_auto_jump = 3
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_scss_checkers = []
+
+
+set matchpairs+=<:>
+
+
+autocmd FileType html,htmldjango,jinjahtml,eruby,mako let b:closetag_html_style=1
+"autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bundle/closetag/plugin/closetag.vim
+
+
+"Turn on indent guides
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
+
+let g:indent_guides_auto_colors = 0
+hi IndentGuidesOdd  ctermbg=darkgrey guibg=#475B62
+hi IndentGuidesEven ctermbg=lightgrey guibg=#677B82
 
 

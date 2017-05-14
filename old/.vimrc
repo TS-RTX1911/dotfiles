@@ -13,17 +13,6 @@ set clipboard=unnamed
 "set directory=$HOME/vimbackup
 
 
-"Show Mode (INSERT, REPLACE, VISUAL)
-set showmode
-
-
-"Wild menu
-set wildmenu
-
-"IME disable
-set iminsert=0
-set imsearch=1
-
 
 
 if has("autocmd")
@@ -64,41 +53,6 @@ endif
 
 
 
-"""""""""""""""""""""""""""""""""" NeoBundle """""""""""""""""""""""""""""""""""
-
- " Note: Skip initialization for vim-tiny or vim-small.
- if !1 | finish | endif
-
- if has('vim_starting')
-   set nocompatible               " Be iMproved
-
-   " Required:
-   set runtimepath+=~/.vim/bundle/neobundle.vim/
- endif
-
- " Required:
- call neobundle#begin(expand('~/.vim/bundle/'))
-
- " Let NeoBundle manage NeoBundle
- " Required:
- NeoBundleFetch 'Shougo/neobundle.vim'
-
- " My Bundles here:
- " Refer to |:NeoBundle-examples|.
- " Note: You don't set neobundle setting in .gvimrc!
-
-
-
- " Required:
- filetype plugin indent on
-
- " If there are uninstalled bundles found on startup,
- " this will conveniently prompt you to install them.
- NeoBundleCheck
-
-
-
-
 """""""""""""""""""""""""""""" NeoBundle Packages """"""""""""""""""""""""""""""
 
 "vimproc
@@ -115,11 +69,8 @@ NeoBundle 'Shougo/vimproc.vim', {
 NeoBundle 'Shougo/unite.vim'
 
 
-"NERDtree (:NERDtree)
-NeoBundle 'scrooloose/nerdtree'
 
-"NERDcommenter
-NeoBundle 'scrooloose/nerdcommenter'
+
 
 "Vim filer
 NeoBundle 'Shougo/vimfiler.vim'
@@ -127,11 +78,8 @@ NeoBundle 'Shougo/vimfiler.vim'
 "Vim shell
 NeoBundle 'Shougo/vimshell.vim'
 
-"surround
-NeoBundle 'tpope/vim-surround'
 
-"Command repeat
-NeoBundle 'tpope/vim-repeat'
+
 
 "vim toggle
 NeoBundle 'taku-o/vim-toggle'
@@ -142,37 +90,26 @@ NeoBundle 'Shougo/echodoc.vim'
 "smartchr
 NeoBundle 'kana/vim-smartchr'
 
-"Git
-NeoBundle 'motemen/git-vim'
 
-"Git branch
-NeoBundle 'tpope/vim-fugitive'
+
 
 NeoBundle 'rails.vim'
 
-"sudo
-NeoBundle 'sudo.vim'
 
-"Align
-NeoBundle 'Align'
+
 
 "Bin
 NeoBundle 'Shougo/vinarise.vim'
 
-"tab
-NeoBundle 'fholgado/minibufexpl.vim'
+
 
 "Indent Coloring
 NeoBundle 'nathanaelkane/vim-indent-guides'
 
-"Show End of the line space
-NeoBundle 'bronson/vim-trailing-whitespace'
 
-"Auto close ()
-NeoBundle 'Townk/vim-autoclose'
 
-"Japanese Document
-NeoBundle 'vim-jp/vimdoc-ja'
+
+
 
 "Neocomplcache
 NeoBundle 'Shougo/neocomplcache'
@@ -223,117 +160,12 @@ let Tlist_Exit_OnlyWindow = 1
              \ 'autoload' : {'filetypes' : ['c', 'cpp', 'objc']}
              \ }
 
-"Emmet
-NeoBundle 'mattn/emmet-vim'
 
-"HTML5
-NeoBundle 'othree/html5.vim'
 
-"CSS3 Syntax
-NeoBundle 'hail2u/vim-css3-syntax'
-
-"HTML5 Validator
-NeoBundle 'hokaccha/vim-html5validator'
-
-"syntastic
-NeoBundle 'scrooloose/syntastic'
-
-"Javascript
-NeoBundle 'pangloss/vim-javascript'
-
-"Changed
-NeoBundle 'vim-scripts/Changed'
-
-"Highlight-UnMatched-Brackets
-NeoBundle 'vim-scripts/Highlight-UnMatched-Brackets'
-set matchpairs+=<:>
-
-"Multiple cursors (Ctrl-n)
-NeoBundle 'terryma/vim-multiple-cursors'
-
-"Closetag (HTML)
-NeoBundle 'vim-scripts/closetag.vim'
 
 
 call neobundle#end()
 
-""""""""""""""""""""""""""""""""" Light Line """""""""""""""""""""""""""""""""""
-
-let g:lightline = {
-      \ 'colorscheme': 'landscape',
-      \ 'mode_map': { 'c': 'NORMAL' },
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
-      \ },
-      \ 'component_function': {
-      \   'modified': 'MyModified',
-      \   'readonly': 'MyReadonly',
-      \   'fugitive': 'MyFugitive',
-      \   'filename': 'MyFilename',
-      \   'fileformat': 'MyFileformat',
-      \   'filetype': 'MyFiletype',
-      \   'fileencoding': 'MyFileencoding',
-      \   'mode': 'MyMode',
-      \ },
-      \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
-      \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }
-      \ }
-
-function! MyModified()
-  return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
-endfunction
-
-function! MyReadonly()
-  return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? "[Readonly]" : ''
-endfunction
-
-function! MyFilename()
-  return ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
-        \ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
-        \  &ft == 'unite' ? unite#get_status_string() :
-        \  &ft == 'vimshell' ? vimshell#get_status_string() :
-        \ '' != expand('%:t') ? expand('%:t') : '[No Name]') .
-        \ ('' != MyModified() ? ' ' . MyModified() : '')
-endfunction
-
-function! MyFugitive()
-  if &ft !~? 'vimfiler\|gundo' && exists("*fugitive#head") && strlen(fugitive#head())
-    return ' ' . fugitive#head()
-    "let _ = fugitive#head()
-    "    return strlen(_) ? "[Fugitive] "._ : ''
-  endif
-  return ''
-endfunction
-
-function! MyFileformat()
-  return winwidth(0) > 70 ? &fileformat : ''
-endfunction
-
-function! MyFiletype()
-  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
-endfunction
-
-function! MyFileencoding()
-  return winwidth(0) > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
-endfunction
-
-function! MyMode()
-  return winwidth(0) > 60 ? lightline#mode() : ''
-endfunction
-
-
-
-
-""""""""""""""""""""""""""""""""" Indent guides """"""""""""""""""""""""""""""""
-
-"Turn on indent guides
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_start_level = 2
-let g:indent_guides_guide_size = 1
-
-let g:indent_guides_auto_colors = 0
-hi IndentGuidesOdd  ctermbg=darkgrey
-hi IndentGuidesEven ctermbg=lightgrey
 
 
 """""""""""""""""""""""""""""""" Neocomplcache """""""""""""""""""""""""""""""""
@@ -489,12 +321,6 @@ let g:java_highlight_functions=1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:vimfiler_as_default_explorer = 1
-let NERDTreeShowHidden = 1
-
-let NERDSpaceDelims = 1
-nmap ,, <Plug>NERDCommenterToggle
-vmap ,, <Plug>NERDCommenterToggle
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -504,10 +330,6 @@ augroup cpp-path
 augroup END
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-autocmd FileType html,htmldjango,jinjahtml,eruby,mako let b:closetag_html_style=1
-"autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bundle/closetag/plugin/closetag.vim
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
