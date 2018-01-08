@@ -4,7 +4,7 @@
 	"color_scheme": "Packages/Material Theme/schemes/Material-Theme.tmTheme",
 	"draw_white_space": "all",
 	"font_face": "Andale Mono for Powerline",
-	"font_size": 13,
+	"font_size": 15,
 	"ignored_packages":
 	[
 		"IMESupport",
@@ -28,7 +28,7 @@
 	"material_theme_small_tab": true,
 	"material_theme_tabs_autowidth": true,
 	"material_theme_tabs_separator": true,
-	"material_theme_tree_headings": true,
+	"material_theme_titlebar": true,
 	"overlay_scroll_bars": "enabled",
 	"rulers":
 	[
