@@ -4,7 +4,7 @@
 	"color_scheme": "Packages/Material Theme/schemes/Material-Theme.tmTheme",
 	"draw_white_space": "all",
 	"font_face": "Andale Mono for Powerline",
-	"font_size": 15,
+	"font_size": 13,
 	"ignored_packages":
 	[
 		"IMESupport",
