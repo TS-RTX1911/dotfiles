@@ -2,10 +2,13 @@
 	"bootstrapped": true,
 	"in_process_packages":
 	[
-		"IMESupport"
 	],
 	"installed_packages":
 	[
+		"Clang-Complete",
+		"Codecs33",
+		"glslViewer",
+		"TerminalView",
 		"AdvancedNewFile",
 		"Alignment",
 		"AlignTab",
@@ -104,7 +107,9 @@
 		"Minifier",
 		"Nettuts+ Fetch",
 		"nginx",
+		"Node Completions",
 		"Nodejs",
+		"NodeRequirer",
 		"OmniMarkupPreviewer",
 		"OnlineSearch",
 		"Open Folder",
@@ -118,6 +123,7 @@
 		"Quick File Open",
 		"ReactJS",
 		"ReactJS Snippets",
+		"Require CommonJS Modules Helper",
 		"Sass",
 		"SCSS",
 		"SFTP",
