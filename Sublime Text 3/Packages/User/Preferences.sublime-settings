@@ -7,6 +7,7 @@
 	"font_size": 13,
 	"ignored_packages":
 	[
+		"Vintage"
 	],
 	"indent_guide_options":
 	[
