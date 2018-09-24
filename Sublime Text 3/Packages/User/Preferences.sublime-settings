@@ -7,6 +7,8 @@
 	"font_size": 13,
 	"ignored_packages":
 	[
+		"IMESupport",
+		"JavaScript",
 		"Vintage"
 	],
 	"indent_guide_options":
